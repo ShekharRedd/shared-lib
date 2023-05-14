@@ -1,4 +1,4 @@
 #!/usr/bin/env groovy
-def test(){
+def call1(){
     echo "testing the application"
 }

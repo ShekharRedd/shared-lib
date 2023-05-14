@@ -1,4 +1,4 @@
 #!/usr/bin/env groovy
-def buildapp(){
+def call(){
     echo "hello world "
 }
