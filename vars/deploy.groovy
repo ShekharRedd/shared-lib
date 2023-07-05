@@ -1,8 +1,18 @@
+// #!/usr/bin/env groovy
+// def call(String image){
+//     echo "deploying the application to production env "
+//     withCredentials([usernamePassword(credentialsId: 'Dockerusername', passwordVariable: 'PASS', usernameVariable: 'USER')])
+//     sh "docker build -t $image ."
+//     sh "echo $PASS | docker login -u $USER --password-stdin"
+//     sh "docker push $image"
+// }
 #!/usr/bin/env groovy
-def call(String image){
+
+def call(String image) {
     echo "deploying the application to production env "
-    withCredentials([usernamePassword(credentialsId: 'Dockerusername', passwordVariable: 'PASS', usernameVariable: 'USER')])
-    sh "docker build -t $image ."
-    sh "echo $PASS | docker login -u $USER --password-stdin"
-    sh "docker push $image"
+    withCredentials([usernamePassword(credentialsId: 'Dockerusername', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
+        sh "docker build -t $image ."
+        sh "echo $PASS | docker login -u $USER --password-stdin"
+        sh "docker push $image"
+    }
 }
