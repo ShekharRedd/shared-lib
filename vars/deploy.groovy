@@ -1,4 +1,4 @@
 #!/usr/bin/env groovy
-def dep(){
+def deploy(){
     echo "deploying the application to production env "
 }
